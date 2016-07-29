@@ -1,0 +1,25 @@
+<% content_for :pageClasses, 'city' %>
+
+<div class="container" id="city">
+  <div class="row">
+    <div class="col-md-4">
+      <div id="city-side-panel" class="paper">
+        <h1><%= city.name %> coworking spaces</h1>
+        <p>
+          <%= city.description %>
+        </p>
+      </div>
+    </div>
+    <div class="col-md-8">
+        <ol class="list-unstyled">
+          <% data.mysheet['spaces'].each_with_index do |space, i| %>
+            <% if space.city == city.name %>
+              <%= partial "partials/space_tile", :locals => { :space => space } %>
+            <% end %>
+          <% end %>
+        </ol>
+    </div>
+  </div>
+</div>
+
+

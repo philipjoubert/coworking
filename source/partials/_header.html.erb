@@ -1,0 +1,33 @@
+<nav class="navbar navbar-coworking" id="coworking-header">
+  <div class="navbar-container">
+    <div class="container">
+      <% link_to "/", class: "navbar-brand" do %>
+        <% if yield_content(:pageClasses) == "home"  %>
+          <%= image_tag "logo_black.png", class: "logo" %>
+        <% else %>
+          <%= image_tag "logo_white.png", class: "logo" %>
+        <% end %>
+      <% end %>
+      <div class="pull-right">
+        <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
+          &#9776;
+        </button>
+      </div>
+      <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar">
+        <ul class="nav navbar-nav pull-right">
+          <% data.mysheet['cities'].each do |city| %>
+            <li class="nav-item"><%= link_to city.name, "/#{city.slug}" %></li>
+          <% end %>
+        </ul>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<script>
+  $(".navbar-toggler").on("click", function() {
+    console.log("test");
+    $("#exCollapsingNavbar").toggleClass("collapse");
+  })
+</script>

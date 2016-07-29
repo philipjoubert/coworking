@@ -1,0 +1,46 @@
+<footer id="coworking-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 col-md-3 col-xs-12">
+        <% link_to "/", class: "navbar-brand" do %>
+          <%= image_tag "logo_white.png", class: "logo-footer m-b" %>
+        <% end %>
+      </div>
+      <div class="col-md-2">
+        <h5>Cities</h5>
+        <ul>
+          <% data.mysheet['cities'].each do |city| %>
+            <li><%= link_to city.name, "/#{city.slug}" %></li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="col-md-2">
+        <h5>Connect</h5>
+        <ul>
+          <li><%= link_to "Twitter", "https://twitter.com/offerzen" %></li>
+          <li><%= link_to "Facebook", "https://www.facebook.com/offerzen" %></li>
+          <li>
+            <%= link_to "Email", "mailto:coworking@offerzen.com" %>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-2">
+        <h5>Other</h5>
+        <ul>
+          <li><%= link_to "Coworking", "/" %></li>
+          <li>
+            <%= link_to "List your Space", "http://goo.gl/forms/GjVHgkPiN2esh0L03" %>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-3">
+        <div class="built-by">
+          <h5>Supported by</h5>
+          <% link_to "https://www.offerzen.com/?utm_source=coworking&utm_medium=footer&utm_campaign=supported-by", target: "_blank" do %>
+            <%= image_tag "offerzen_white.png" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

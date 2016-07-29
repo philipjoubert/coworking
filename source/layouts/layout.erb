@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+  <head>
+    <%= partial "partials/meta_tags",
+                :locals => {
+                :slug => slug ||= nil,
+                :title => title ||= nil,
+                :page_type => page_type ||= 'index' } %>
+
+    <%= stylesheet_link_tag :styles %>
+    <%= javascript_include_tag :all %>
+
+    <script src="https://use.typekit.net/dgg5abg.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+  </head>
+
+  <body class="<%= custom_page_classes %>">
+    <%= partial "partials/header" %>
+    <%= yield %>
+
+    <%= partial "partials/footer" %>
+  </body>
+</html>
+
+<%= partial "partials/tags" %>

@@ -1,0 +1,94 @@
+<div class="space-side-panel">
+  <div class="space-section">
+    <h5>Contact</h5>
+    <table class="contact-table">
+      <tbody>
+        <% if !space.phone.blank? %>
+        <tr>
+          <td>
+            <i class="fa fa-phone"></i>
+          </td>
+          <td>
+            <tel><%= space.phone %></tel>
+          </td>
+        </tr>
+        <% end %>
+        <tr>
+          <td>
+            <i class="fa fa-envelope-o"></i>
+          </td>
+          <td>
+            <% link_to "mailto:#{space.email}" do %>
+              <%= space.email %>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <i class="fa fa-globe"></i>
+          </td>
+          <td>
+            <% link_to "#{space.website}" do %>
+               <%= space.website %>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <i class="fa fa-map-marker"></i>
+          </td>
+          <td>
+            <address>
+              <%= space.address %>
+            </address>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <% if !space.day_rate.blank? || !space.week_rate.blank? || !space.month_rate.blank? %>
+    <div class="space-section" id="pricing">
+      <h5>Pricing</h5>
+      <table>
+        <tbody>
+          <% if !space.day_rate.blank? %>
+          <tr>
+            <td style="width: 70px;">
+              <strong>Daily:</strong>
+            </td>
+            <td>
+               R<%= space.day_rate.to_i %>
+            </td>
+          </tr>
+          <% end %>
+          <% if !space.week_rate.blank? %>
+          <tr>
+            <td style="width: 70px;">
+              <strong>Weekly:</strong>
+            </td>
+            <td>
+               R<%= space.week_rate.to_i %>
+            </td>
+          </tr>
+          <% end %>
+          <% if !space.month_rate.blank? %>
+          <tr>
+            <td style="width: 70px;">
+              <strong>Monthly:</strong>
+            </td>
+            <td>
+               R<%= space.month_rate.to_i %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+</div>
+<div class="built-by built-by-side-panel">
+  <% link_to "https://www.offerzen.com/?utm_source=coworking&utm_medium=side-panel&utm_campaign=slogan", target: "_blank" do %>
+    <%= image_tag "offerzen_white.png" %>
+    <p>Receive job offers from 100+ South African tech companies</p>
+  <% end %>
+</div>

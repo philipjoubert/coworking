@@ -1,0 +1,79 @@
+---
+title: Coworking spaces in Cape Town, Johannesburg and Durban
+---
+
+<% content_for :pageClasses, 'home' %>
+
+<div class="hero" id="hero-home">
+  <div class="hero-content">
+    <div class="vertical-center">
+      <div class="inner">
+        <div class="container">
+          <h1>
+            The best list of coworking spaces in South Africa
+          </h1>
+          <div class="city-links">
+            <%= link_to "Cape Town", "/cape-town" %>
+            <%= link_to "Johannesburg", "/johannesburg" %>
+            <%= link_to "Durban", "/durban" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-image"></div>
+</div>
+<div class="offerzen-ad">
+  <div class="container">
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <% link_to "https://www.offerzen.com/?utm_source=coworking&utm_medium=banner&utm_campaign=built-by" do %>
+              <%= image_tag "built-by.png" %>
+            <% end %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div id="locations-showcase">
+  <div class="container">
+    <header class="text-center m-b-lg">
+      <h5>Coworking spaces</h5>
+      <h3>See the amazing coworking spaces waiting for you</h3>
+    </header>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <% data.mysheet['spaces'][0..6].each_with_index do |space, i| %>
+        <% if i == 0 || i == 6 %>
+        <div class="col-md-8 col-sm-12 col-xs-12">
+        <% elsif i == 5 %>
+        <div class="col-md-4 hidden-sm-down">
+        <% else %>
+        <div class="col-md-4 col-xs-6">
+        <% end %>
+          <div class="tile">
+            <% link_to "/#{space.city_slug}/#{space.slug}" do %>
+              <div class="tile-image" style="background-image:url('/images/spaces/<%= space.image_small %>')"></div>
+              <div class="tile-content">
+                <div class="vertical-center">
+                  <div class="inner">
+                    <h3>
+                      <small><%= space.city %></small>
+                      <%= space.name %>
+                    </h3>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

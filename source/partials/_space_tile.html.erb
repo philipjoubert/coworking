@@ -1,0 +1,30 @@
+<li class="space-tile paper">
+  <div class="container">
+    <div class="row">
+      <div class="tile-image col-md-4 col-xs-4">
+        <% link_to "/#{space.city_slug}/#{space.slug}" do %>
+          <%= image_tag "spaces/#{space.image_small}", class: "img-fluid" %>
+        <% end %>
+      </div>
+      <div class="tile-content col-md-5 col-xs-4">
+        <h4><%= link_to "#{space.name}", "/#{space.city_slug}/#{space.slug}" %></h4>
+        <p><%= space.address %></p>
+        <i class="fa fa-map-marker"></i> <%= space.city %>
+      </div>
+      <div class="tile-price col-md-3 col-xs-4">
+        <% if !space.day_rate.blank? || !space.day_rate.blank? %>
+          <div><small class="text-muted">FROM</small></div>
+        <% end %>
+        <% if !space.day_rate.blank? %>
+          <div>R<%= space.day_rate.to_i %>/<small>day</small></div>
+        <% end %>
+        <% if !space.month_rate.blank? %>
+          <div>R<%= space.month_rate.to_i %>/<small>month</small></div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</li>
+
+
+
